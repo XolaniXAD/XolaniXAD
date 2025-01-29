@@ -1,0 +1,115 @@
+.thumbnail {
+  /*width: 300px;*//*Setting the width also adjusts the size of the height to ensure that the image remains proportional*/
+  /*height: 300px;*//*lost proportionality like this*/
+  /*object-fit: cover;*//*confine the image within predetermined space*/
+  /*object-position: right*//*;*//*view right side of image*/
+  /*display: block;*//*This causes the image to take the entire line as space*/
+  width: 100%;
+}
+
+
+
+
+.video-author, .video-stats {/*Now the text will appear sideways to each other
+  This is another way in CSS to target multiple classes*/
+  display: block;/*Basically you can make paragraphs lie next to each other using the inline block element*/
+  
+}
+
+
+
+.video-info-grid {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+}
+.channel-picture {
+  
+}
+
+.video-info {
+ 
+  
+}
+
+.profile-picture {
+  width: 100%;/*take 100% of the space set in the div*/
+  border-radius: 50px;
+  width: 36px;
+  
+}
+
+.video-title {
+  margin-top: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+.thumbnail-row {
+  margin-bottom: 8px;
+  position: relative;
+
+}
+
+.video-author, .video-stats {
+  font-size: 12px;
+  color: rgb(96,96,96);
+}
+
+.video-author {
+  margin-bottom: 4px;
+}
+
+.video-grid {
+  
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 16px;
+  row-gap: 40px;
+  /*text-decoration: underline;*//*since video-grid houses all other elements, whatever happens to it can get passed on to the inner elements
+  However, not all css properties can be inherited. a border is a good example. Inheritance mainly works with text
+  */
+}
+
+@media (max-width: 750px) {/*This is called responsive design*/
+  .video-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 751px) and (min-width: 999px) {
+  .video-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 1000px) {
+  .video-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+
+.video-time {
+  background-color: black;
+  color: white;
+  position: absolute;
+  bottom: 8px;
+  right: 5px;
+  font-family: Roboto, Ariel;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px;/*all sides will have 4px of padding space padding: vertical-pixels horizontal-pixels
+  you can also set all 4 directions within the same line padding: top right bottom left
+  you can do the same for the margin
+  */
+  border-radius: 2px;
+}
+
+.video-link {
+  text-decoration: none; /* Remove underline */
+  display: block; /* Make the link cover the entire div */
+  color: black;
+}
+
