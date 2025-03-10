@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Heads Or Tails
+    </title>
+
+    <style>
+      body {
+        color: white;
+        background-color: rgb(24, 24, 24);
+      }
+      .outer-button-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 200px;
+        height: 200px;
+      }
+
+      .button-div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 90px;
+        height: 90px;
+        background-color: brown;
+        border-radius: 50%;
+      }
+
+      .button-itself {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: none;
+      }
+
+      .coin-pic {
+        width: 120%;
+        height: 120%;
+        border-radius: 50%;
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <p>Heads Or Tails</p> 
+
+    <div class="outer-button-container">
+      <div class="button-div">
+        <button class="button-itself" onclick="
+          playGame('Heads');
+        ">
+          <img class="coin-pic" src="Heads.jpg">
+        </button>
+      </div>
+      
+      <div class="button-div">
+        <button class="button-itself" onclick="
+          playGame('Tails');
+      ">
+          <img class="coin-pic" src="Tails.jpg">
+        </button>
+      </div>
+      
+    </div>
+    
+
+    <button onclick="
+      resetScore();
+    ">Reset</button>
+
+    <p class="js-lose-or-win-paragraph"></p>
+
+    <p class="js-results"></p>
+    <p class="js-score-paragraph"></p>
+
+    <script>
+      const score = JSON.parse(localStorage.getItem('score')) || {
+        wins: 0,
+        losses: 0
+      };
+
+      const options = ['Heads', 'Tails'];
+      
+      function getComputerChoice() {
+        const randomInt = Math.floor(Math.random() * 2);
+        return options[randomInt];
+      }
+
+      function playGame(humanChoice) {
+
+        function winOrLose(input) {
+        if (input === 'win') {
+          document.querySelector('.js-lose-or-win-paragraph')
+          .innerHTML = `You win!`;
+        } else if (input === 'lose') {
+          document.querySelector('.js-lose-or-win-paragraph')
+          .innerHTML = `You lose!`;
+        } else {
+          document.querySelector('.js-lose-or-win-paragraph')
+          .innerHTML = `Score has been reset`;
+        }
+      }
+
+        const computerChoice = getComputerChoice();
+
+        if (humanChoice === computerChoice) {
+          score.wins++;
+          winOrLose('win');
+        } else {
+          score.losses++;
+          winOrLose('lose');
+        }
+        printScore();
+
+
+        localStorage.setItem('score', JSON.stringify(score));
+
+        document.querySelector('.js-results').innerHTML = `You
+      <img class="move-icon" src="${humanChoice}-emoji.png">
+      <img class="move-icon" src="${computerChoice}-emoji.png">
+      Computer`
+    ;
+      }
+
+      function resetScore() {
+        score.wins = 0;
+        score.losses = 0;
+        localStorage.removeItem('score'); // Remove the score from localStorage
+        printScore();
+        winOrLose('reset');
+      }
+      
+      function printScore() {
+        document.querySelector('.js-score-paragraph')
+      .innerHTML = `Wins: ${score.wins} Losses: ${score.losses}`;
+      }
+
+    </script>
+  </body>
+</html>
