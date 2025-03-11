@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Exercise-10e
+    </title>
+
+    <style>
+      button {
+        padding: 12px 15px;
+        background-color: rgb(226, 215, 215);
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        margin-right: 10px;
+        font-family: Arial;
+      }
+
+      .clicked {
+        background-color: black;
+        color: white;
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <button class="js-one" onclick="
+      changeAppearance('js-one');
+      ">ONE</button>
+    <button class="js-two" onclick="
+      changeAppearance('js-two');
+    ">TWO</button>
+    <button class="js-three" onclick="
+      changeAppearance('js-three');
+    ">THREE</button>
+
+
+    <script>
+
+      function changeAppearance(ObjectInput) {
+        let lastClickedButton = null;
+        let buttonElement = document.querySelector(`.${ObjectInput}`);
+
+        const theStyle = getComputedStyle(buttonElement);
+        const theBackground = theStyle['background-color'];
+
+        if (lastClickedButton && lastClickedButton !== buttonElement) {
+          lastClickedButton.classList.remove('clicked');
+        }
+
+        if (theBackground === 'rgb(226, 215, 215)') {
+          buttonElement.classList.add('clicked');
+          lastClickedButton = buttonElement;
+        } else {
+          buttonElement.classList.remove('clicked');
+        }
+      }
+    </script>
+  </body>
+</html>
