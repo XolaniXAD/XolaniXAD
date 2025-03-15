@@ -1,0 +1,39 @@
+.added-element-container, .input-element-div {
+  display: grid;
+  grid-template-columns: 150px 150px 150px;
+  column-gap: 10px;
+  row-gap: 10px;
+}
+
+.input-element-div {
+  margin-bottom: 10px;
+  font-family: Arial;
+  font-weight: bold;
+}
+
+.js-text-input, .js-time-input {
+  padding: 10px 10px;
+  font-family: Arial;
+  font-weight: bold;
+}
+
+.added-to-do, .added-time {
+  padding: 10px 10px;
+  font-family: Arial;
+  font-weight: bold;
+}
+
+.add-button, .delete-button {
+  color: white;
+  font-weight: bold;
+  background-color: blue;
+}
+
+.delete-button {
+  background-color: green;
+}
+
+.todo-list-paragraph {
+  font-weight: bold;
+  font-size: 20px;
+}
