@@ -1,0 +1,37 @@
+Every element has a method known as the addEventlistener().
+An event is an action or occurrence detected by a program, usually triggered by the user (e.g., clicking a button, typing in a text field) or by the system (e.g., page load, timer expiration).
+
+An event listener is a function that waits for a specific event to occur and then executes a predefined response when it does.
+
+Example in JavaScript:
+javascript
+Copy
+Edit
+// Event: Clicking a button
+document.getElementById("myButton").addEventListener("click", function() {
+    alert("Button clicked!");
+});
+Event: The "click" action on the button.
+
+Event Listener: The function that listens for the click and shows an alert when it happens.
+
+Essentially, the event is what happens, and the event listener is the mechanism that reacts to it. 🚀
+
+
+tonElement = document.querySelector('.js-button');
+
+const eventListener = () => {
+	console.log('yebo');
+};
+
+buttonElement.addEventListener('click', eventListener);//this acts like using onclick
+
+//You can also add in mutliple event listeners
+
+buttonElement.addEventListener('click', eventListener);
+
+buttonElement.addEventListener('click', () => {
+	console.log('hello');
+});
+
+buttonElement.removeEventListener('click', eventListener);
