@@ -104,3 +104,115 @@ buttonElement.removeEventListener('click', eventListener);
     </script>
   </body>
 </html>
+
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <button class="js-button">Start</button>
+    
+    <button class="js-button2">Click</button>
+    
+    <button class="js-add-item">Add Item</button>
+    
+    <button class="js-another-add-item">Add Another Item</button>
+
+    <script>
+      //12a
+      /*const add = () => {
+        	console.log(2+5);
+        }
+        
+        /*add();
+        add();*/
+
+      //12b
+      /* const runTwice = (input, rounds) => {
+        	for (let i = 0; i < rounds; i++) {
+          	input();
+          }
+        }
+        
+        runTwice(add, 4);*/
+
+      //12c
+      let buttonElement = document.querySelector(".js-button")
+
+      buttonElement.addEventListener(
+        "click",
+        () => {
+          setTimeout(() => {
+            if (buttonElement.innerHTML === "Start") {
+              buttonElement.innerHTML = "Finished"
+            } else {
+              buttonElement.innerHTML = "Start"
+            }
+          })
+        },
+        1000,
+      );
+
+      //12d
+      let buttonElement2 = document.querySelector(".js-button2")
+
+			buttonElement2.addEventListener('click', () => {
+      
+      	if (buttonElement2.innerHTML === "Click") {
+            buttonElement2.innerHTML = "Loading...";
+						 setTimeout(() => {
+             	 buttonElement2.innerHTML = "Done!"; 
+            }, 4000);
+        } else {
+        	buttonElement2.innerHTML = "Click";
+        }	
+      });
+      
+      //12e
+      let buttonElement3 = document.querySelector(".js-add-item");
+
+      buttonElement3.addEventListener('click', () => {
+      	const createParagraph = document.createElement('p');
+        createParagraph.innerHTML = 'Item added!'
+        document.body.appendChild(createParagraph);
+        
+        setTimeout(() => {
+        	createParagraph.remove(createParagraph);
+        }, 3000);
+      });
+      
+      //12f
+        let buttonElement4 = document.querySelector(".js-another-add-item");
+
+        let timeoutID; // Declare a variable to store the timeout ID
+
+        buttonElement4.addEventListener('click', () => {
+          // Create a new paragraph element
+          const paragraph = document.createElement('p');
+
+          // Add a class to the paragraph (optional, for styling)
+          paragraph.classList.add('added-paragraph');
+
+          // Append the new paragraph to the body
+          document.body.appendChild(paragraph);
+
+          // Set the inner text of the paragraph
+          paragraph.innerHTML = 'Item added!';
+
+          // Clear any previous timeout, if one exists
+          if (timeoutID) {
+            clearTimeout(timeoutID);
+          }
+
+          // Set a new timeout to remove the paragraph after 2 seconds
+          timeoutID = setTimeout(() => {
+            paragraph.remove();  // Remove the paragraph from the DOM
+          }, 2000); // Wait for 2 seconds
+        });
+
+
+
+    </script>
+  </body>
+</html>
