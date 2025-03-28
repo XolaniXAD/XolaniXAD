@@ -35,3 +35,72 @@ buttonElement.addEventListener('click', () => {
 });
 
 buttonElement.removeEventListener('click', eventListener);
+
+
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <button class="js-button">Start</button>
+    
+    <button class="js-button2">Click</button>
+    
+    <button class="js-add-item">Click</button>
+
+    <script>
+      //12a
+      /*const add = () => {
+        	console.log(2+5);
+        }
+        
+        /*add();
+        add();*/
+
+      //12b
+      /* const runTwice = (input, rounds) => {
+        	for (let i = 0; i < rounds; i++) {
+          	input();
+          }
+        }
+        
+        runTwice(add, 4);*/
+
+      //12c
+      let buttonElement = document.querySelector(".js-button")
+
+      buttonElement.addEventListener(
+        "click",
+        () => {
+          setTimeout(() => {
+            if (buttonElement.innerHTML === "Start") {
+              buttonElement.innerHTML = "Finished"
+            } else {
+              buttonElement.innerHTML = "Start"
+            }
+          })
+        },
+        1000,
+      );
+
+      //12d
+      let buttonElement2 = document.querySelector(".js-button2")
+
+			buttonElement2.addEventListener('click', () => {
+      
+      	if (buttonElement2.innerHTML === "Click") {
+            buttonElement2.innerHTML = "Loading...";
+						 setTimeout(() => {
+             	 buttonElement2.innerHTML = "Done!"; 
+            }, 4000);
+        } else {
+        	buttonElement2.innerHTML = "Click";
+        }	
+      });
+      
+      //12e
+      
+    </script>
+  </body>
+</html>
